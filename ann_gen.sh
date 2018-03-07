@@ -1,8 +1,9 @@
 #!/bin/bash
 
-infile_str=./S
+start=./S
+record=R
 outfile_str=ann
-infile=$infile_str
+infile=$start
 outfile=$outfile_str
 edf=.edf
 txt=.txt
@@ -16,25 +17,18 @@ do
 	num=${num:: -1}
 	# echo $num
 
-	infile=$infile_str$num
-	echo $infile
-	# for X in 03 08 11
-	# do
-	# 	infile=$infile$X$edf
-	# 	outfile=$outfile$X$txt
-	# 	echo $infile
-	# 	echo $outfile
+	sample=$start$num
+	echo $sample
 
-	# 	rdedfann -r $infile > $outfile
+	for X in 03 07 11
+	do
+		infile=$sample$record$X$edf
+		outfile=$outfile_str$X$txt
+		echo $infile
+		echo $outfile
 
-	# 	infile=$infile_str
-	# 	outfile=$outfile_str
-	# done
-    # for file in "$dir"/*
-    # do
-    #     if [[ -f $file ]]
-    #     then
-    #         do_something_with "$file"
-    #     fi
-    # done
+		rdedfann -r $infile > $outfile
+
+	done
+
 done
