@@ -1,0 +1,142 @@
+<!--#set var="TITLE" value="EEG Motor Movement/Imagery Dataset"-->
+<!--#set var="USELOCALCSS" value="1"-->
+<!--#include virtual="/head.shtml"-->
+
+<div class="notice">
+<p>
+This dataset was created and contributed to PhysioNet by the developers of
+the BCI2000 instrumentation system, which they used in making these recordings.
+The system is described in:</p>
+
+<div class="reference">
+Schalk, G., McFarland, D.J., Hinterberger, T., Birbaumer, N., Wolpaw, J.R.
+<a href=http://www.ncbi.nlm.nih.gov/pubmed/15188875 target="other">BCI2000: A
+General-Purpose Brain-Computer Interface (BCI) System.</a>
+<i>IEEE Transactions on Biomedical Engineering</i> <b>51</b>(6):1034-1043, 2004.
+[In 2008, this paper received the Best Paper Award from IEEE TBME.]
+</div> <!-- end reference -->
+
+<p>
+<b>Please cite this publication and <a href=http://www.bci2000.org/
+target="other">www.bci2000.org</a> when referencing this material, and
+also include the standard citation for PhysioNet:</b>
+<div class="reference">
+Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh, Mark RG,
+Mietus JE, Moody GB, Peng C-K, Stanley HE.  PhysioBank, PhysioToolkit, and
+PhysioNet: Components of a New Research Resource for Complex Physiologic
+Signals.
+<i>Circulation</i> <b>101</b>(23):e215-e220 [Circulation Electronic Pages;
+<a href="http://circ.ahajournals.org/cgi/content/full/101/23/e215"
+target="other">http://circ.ahajournals.org/cgi/content/full/101/23/e215</a>];
+2000 (June 13).
+</div> <!-- end reference -->
+
+</div>
+
+<p> This data set consists of over 1500 one- and two-minute EEG recordings,
+obtained from 109 volunteers, as described below.</p>
+
+<h2>Experimental Protocol</h2>
+
+<p> Subjects performed different motor/imagery tasks while 64-channel
+EEG were recorded using the BCI2000 system
+(<a href=http://www.bci2000.org
+target="other">http://www.bci2000.org</a>).  Each subject performed
+14 experimental runs: two one-minute baseline runs (one with
+eyes open, one with eyes closed), and three two-minute runs of each of the
+four following tasks:</p>
+
+<ol>
+<li> A target appears on either the left or the right side of the
+     screen. The subject opens and closes the corresponding fist until the
+     target disappears. Then the subject relaxes.</li>
+
+<li> A target appears on either the left or the right side of the
+     screen. The subject imagines opening and closing the
+     corresponding fist until the target disappears. Then the subject
+     relaxes.</li>
+
+<li> A target appears on either the top or the bottom of the
+     screen. The subject opens and closes either both fists (if the
+     target is on top) or both feet (if the target is on the bottom)
+     until the target disappears. Then the subject relaxes.</li>
+
+<li> A target appears on either the top or the bottom of the
+     screen. The subject imagines opening and closing either both
+     fists (if the target is on top) or both feet (if the target is on
+     the bottom) until the target disappears. Then the subject
+     relaxes.</li>
+</ol>
+
+<p>
+In summary, the experimental runs were:</p>
+
+<ol>
+<li> Baseline, eyes open</li>
+<li> Baseline, eyes closed</li>
+<li> Task 1 (open and close left or right fist)</li>
+<li> Task 2 (imagine opening and closing left or right fist)</li>
+<li> Task 3 (open and close both fists or both feet)</li>
+<li> Task 4 (imagine opening and closing both fists or both feet)</li>
+<li> Task 1</li>
+<li> Task 2</li>
+<li> Task 3</li>
+<li> Task 4</li>
+<li> Task 1</li>
+<li> Task 2</li>
+<li> Task 3</li>
+<li> Task 4</li>
+</ol>
+
+<p> The data are provided here in EDF+ format (containing 64 EEG signals, each
+sampled at 160 samples per second, and an
+annotation channel).  For use with PhysioToolkit software, <a
+href=/physiotools/wag/rdedfa-1.htm><tt>rdedfann</tt></a> generated a separate
+PhysioBank-compatible annotation file (with the suffix <tt>.event</tt>) for
+each recording.  The <tt>.event</tt> files and the annotation channels in the
+corresponding .edf files contain identical data.</p>
+
+<p> Each annotation includes one of three codes (T0, T1, or T2):</p>
+
+<ul>
+<li><b>T0</b> corresponds to rest</li>
+<li><b>T1</b> corresponds to onset of motion (real or imagined) of
+    <ul>
+    <li> the left fist (in runs 3, 4, 7, 8, 11, and 12)</li>
+    <li> both fists (in runs 5, 6, 9, 10, 13, and 14)</li>
+    </ul></li>
+<li><b>T2</b> corresponds to onset of motion (real or imagined) of
+    <ul>
+    <li> the right fist (in runs 3, 4, 7, 8, 11, and 12)</li>
+    <li> both feet (in runs 5, 6, 9, 10, 13, and 14)</li>
+    </ul></li>
+</ul>
+
+<p> In the BCI2000-format versions of these files, which may be available from
+the contributors of this data set, these annotations are encoded as values of
+0, 1, or 2 in the TargetCode state variable.</p>
+
+<h2>Montage</h2>
+
+<p>The EEGs were recorded from 64 electrodes as per the international 10-10 system
+(excluding electrodes Nz, F9, F10, FT9, FT10, A1, A2, TP9, TP10, P9, and P10),
+as shown below (and in this <a href=64_channel_sharbrough.pdf>PDF figure</a>).  The numbers below each electrode name indicate the order in
+which they appear in the records;  note that signals in the records are
+numbered from 0 to 63, while the numbers in the figure range from 1 to 64.</p>
+
+<div class="outer2"><div class="inner2" >
+<a href="64_channel_sharbrough.pdf"><img src="64_channel_sharbrough.png" alt="figure showing placement of electrodes" style="width: 600px;"></a>
+</div></div>
+
+<h3>Acknowledgments</h3>
+
+<p>
+This data set was created and contributed to PhysioBank by Gerwin
+Schalk (schalk at wadsworth dot org) and his colleagues at the BCI
+R&amp;D Program, Wadsworth Center, New York State Department of
+Health, Albany, NY. W.A. Sarnacki collected the data.  Aditya Joshi
+compiled the dataset and prepared the documentation.  D.J. McFarland
+and J.R. Wolpaw were responsible for experimental design and project
+oversight, respectively.  This work was supported by grants from
+NIH/NIBIB ((EB006356 (GS) and EB00856 (JRW and GS)).</p>
+
